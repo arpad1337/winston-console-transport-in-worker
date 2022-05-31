@@ -1,0 +1,46 @@
+{
+    "compilerOptions": {
+        "allowJs": false,
+        "baseUrl": "./",
+        "declaration": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react",
+        "lib": [
+            "es6",
+        ],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "outDir": "./build/dist",
+        "paths": {
+            "*": [
+                "./src/types/*",
+                "./types/*"
+            ]
+        },
+        "rootDirs": [
+            "./src",
+        ],
+        "sourceMap": true,
+        "strictNullChecks": true,
+        "skipLibCheck": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "target": "es6",
+        "experimentalDecorators": true,
+        "plugins": [
+            {
+                "name": "typescript-tslint-plugin"
+            }
+        ]
+    },
+    "include": [
+        "./src",
+    ],
+    "exclude": [
+        "./node_modules",
+        "./build"
+    ]
+}
