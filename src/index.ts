@@ -21,6 +21,10 @@ interface IConsoleInWorkerReceivable extends IConsoleInWorkerTransportableBase {
     [MESSAGE]: string;
 }
 
+interface ICompoundConsoleInWorkerObject extends IConsoleInWorkerTransportable, IConsoleInWorkerReceivable {
+
+}
+
 export class ConsoleTransportInWorker extends winston.transports.Console {
     
     private nestedWorker: Worker;
@@ -53,25 +57,21 @@ export class ConsoleTransportInWorker extends winston.transports.Console {
     }
 
     private encodeForTransport(info: IConsoleInWorkerReceivable): IConsoleInWorkerTransportable {
-        const { message, level, timestamp } = info;
-        return {
-            SymbolLevel: info[LEVEL],
-            SymbolMessage: info[MESSAGE],
-            level,
-            message,
-            timestamp,
-        };
+        const newPointer: Partial<ICompoundConsoleInWorkerObject> = info as ICompoundConsoleInWorkerObject;
+        newPointer.SymbolLevel = info[LEVEL];
+        newPointer.SymbolMessage = info[MESSAGE];
+        delete newPointer[LEVEL];
+        delete newPointer[MESSAGE];
+        return newPointer as IConsoleInWorkerTransportable;
     }
 
     private decodeFromTransport(info: IConsoleInWorkerTransportable): IConsoleInWorkerReceivable {
-        const { message, level, timestamp } = info;
-        return {
-            [LEVEL]: info.SymbolLevel,
-            [MESSAGE]: info.SymbolMessage,
-            level,
-            message,
-            timestamp,
-        };
+        const newPointer: Partial<ICompoundConsoleInWorkerObject> = info as ICompoundConsoleInWorkerObject;
+        newPointer[LEVEL] = info.SymbolLevel;
+        newPointer[MESSAGE] = info.SymbolMessage;
+        delete newPointer.SymbolLevel
+        delete newPointer.SymbolMessage;
+        return newPointer as IConsoleInWorkerReceivable;
     }
     
 }

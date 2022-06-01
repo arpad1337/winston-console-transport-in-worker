@@ -41,7 +41,6 @@ export const logger: winston.Logger = winston.createLogger({
 git clone https://github.com/arpad1337/winston-console-transport-in-worker.git
 cd winston-console-transport-in-worker
 npm install
-npm run build
 npm test
 ```
 
@@ -50,7 +49,7 @@ npm test
 
 Logging pre-generated large strings, ellapsed time between logging call (`transport.log(...)`) start and completion
 
-![Benchmark results](https://www.arpi.im/public/benchmark_2.png)
+![Benchmark results](https://www.arpi.im/public/benchmark_3.png)
 
 # Author
 

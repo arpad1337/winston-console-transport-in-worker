@@ -33,24 +33,20 @@ class ConsoleTransportInWorker extends winston.transports.Console {
         }
     }
     encodeForTransport(info) {
-        const { message, level, timestamp } = info;
-        return {
-            SymbolLevel: info[triple_beam_1.LEVEL],
-            SymbolMessage: info[triple_beam_1.MESSAGE],
-            level,
-            message,
-            timestamp,
-        };
+        const newPointer = info;
+        newPointer.SymbolLevel = info[triple_beam_1.LEVEL];
+        newPointer.SymbolMessage = info[triple_beam_1.MESSAGE];
+        delete newPointer[triple_beam_1.LEVEL];
+        delete newPointer[triple_beam_1.MESSAGE];
+        return newPointer;
     }
     decodeFromTransport(info) {
-        const { message, level, timestamp } = info;
-        return {
-            [triple_beam_1.LEVEL]: info.SymbolLevel,
-            [triple_beam_1.MESSAGE]: info.SymbolMessage,
-            level,
-            message,
-            timestamp,
-        };
+        const newPointer = info;
+        newPointer[triple_beam_1.LEVEL] = info.SymbolLevel;
+        newPointer[triple_beam_1.MESSAGE] = info.SymbolMessage;
+        delete newPointer.SymbolLevel;
+        delete newPointer.SymbolMessage;
+        return newPointer;
     }
 }
 exports.ConsoleTransportInWorker = ConsoleTransportInWorker;
