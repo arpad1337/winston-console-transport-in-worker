@@ -50,7 +50,7 @@ npm test
 
 Logging pre-generated large strings, ellapsed time between logging call (`transport.log(...)`) start and completion
 
-![Benchmark results](https://www.arpi.im/public/benchmark.png)
+![Benchmark results](https://www.arpi.im/public/benchmark_2.png)
 
 # Author
 

@@ -1,6 +1,6 @@
 {
   "name": "@rpi1337/winston-console-transport-in-worker",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Worker Thread based async Console Transport for winston",
   "main": "build/dist/index.js",
   "engines": {
@@ -10,7 +10,8 @@
     "postinstall": "npm run build",
     "clean": "rimraf ./build",
     "build": "npm run clean && tsc",
-    "test": "node performance-test.js"
+    "pretest": "node test/performance-test.js 2>&1 | tee perf-test-out.txt",
+    "test": "grep -A 3 \"Simple\" perf-test-out.txt"
   },
   "author": "arpad1337",
   "license": "ISC",
