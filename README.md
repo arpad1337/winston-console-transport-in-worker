@@ -1,3 +1,4 @@
+[![npm version](https://badge.fury.io/js/@rpi1337%2Fwinston-console-transport-in-worker.svg)](https://badge.fury.io/js/@rpi1337%2Fwinston-console-transport-in-worker) 
 [![Build Status](https://app.travis-ci.com/arpad1337/winston-console-transport-in-worker.svg?branch=master)](https://app.travis-ci.com/arpad1337/winston-console-transport-in-worker)
 
 # The Problem
@@ -6,7 +7,7 @@ In NodeJS's V8 and similarly in other JS engines `console.log` is just a wrapper
 
 In modern NodeJS backend applications the Winston logging library is the most commonly used approach to tackle logging tasks due to its flexibility on Log Entry formatting, and the numerous Transport options available, such as HTTP, Stream, File and Console, next to many community built extensions.
 
-Most of PaaS Cloud Platforms and Dockerized - process oriented - hosting solutions, whether Managed or built on top of one of the awailable Open Source Could Orchestration tools however demanding for Console based logging strategy, due to the simplicity of capturing the outputs of process models realtime, which have some challenges on its own, especially at scale.
+Most of PaaS Cloud Platforms and Dockerized - process oriented - hosting solutions, whether Managed or built on top of one of the available Open Source Could Orchestration tools however demanding for Console based logging strategy, due to the simplicity of capturing the outputs of process models realtime, which have some challenges on its own, especially at scale.
 
 # The Solution
 
