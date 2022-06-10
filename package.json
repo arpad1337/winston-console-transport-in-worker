@@ -1,13 +1,12 @@
 {
   "name": "@rpi1337/winston-console-transport-in-worker",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "Worker Thread based async Console Transport for winston",
   "main": "build/dist/index.js",
   "engines": {
     "node": ">=16"
   },
   "scripts": {
-    "postinstall": "npm run build",
     "clean": "rimraf ./build",
     "build": "npm run clean && tsc",
     "pretest": "node test/performance-test.js 2>&1 | tee perf-test-out.txt",

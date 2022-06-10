@@ -42,6 +42,7 @@ export const logger: winston.Logger = winston.createLogger({
 git clone https://github.com/arpad1337/winston-console-transport-in-worker.git
 cd winston-console-transport-in-worker
 npm install
+npm run build
 npm test
 ```
 
